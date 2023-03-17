@@ -464,24 +464,21 @@ body {
     position: absolute;
     top: 15%;
     left: 50%;
+    padding: 10px;
     transform: translatex(-50%);
     display: none;
+    font-size: 18px;
 }
 
-@media (min-width:768px),(max-width:991px) {
-    .gallery .continer h3 {
-        position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translatex(-50%);
-            display: none
-    }
+.gallery .continer .text {
+    text-align: center;
 }
 
 .gallery .continer .image:hover h3 {
     display: block;
     z-index: 2;
     color: #a05513;
+    font-size: 15px;
 }
 
 .gallery .continer p {
