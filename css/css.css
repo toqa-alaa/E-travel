@@ -3,7 +3,7 @@
     --sec-color: #492f18;
     --third-color: #fff;
     --main-padding: 80px 0;
-    --main-transition: 0.5s;
+    --main-transition: 0.3s;
 
 }
 
@@ -22,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--main-color);
+    user-select: none;
 
 }
 
@@ -82,16 +83,17 @@ body {
 }
 
 .header .continer {
-    padding: 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
+    z-index: 100;
 
 }
 
 .header .continer h1 {
-    margin: 0;
+    margin: 0 10px;
     color: var(--sec-color);
 }
 
@@ -218,8 +220,11 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 30px;
+    background-color: #996b41e6;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 100%;
 
 }
 
@@ -257,8 +262,11 @@ body {
     text-align: left;
     border-radius: 5px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: transform var(--main-transition--), box-shadow var(--main-transition--);
-
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+    -webkit-transition: transform var(--main-transition), box-shadow var(--main-transition);
+    -moz-transition: transform var(--main-transition), box-shadow var(--main-transition);
+    -ms-transition: transform var(--main-transition), box-shadow var(--main-transition);
+    -o-transition: transform var(--main-transition), box-shadow var(--main-transition);
 
 }
 
@@ -341,11 +349,13 @@ body {
 .services {
     padding: 80px 0 40px;
 }
- @media(max-width:767px) {
-     .services {
-         padding: 40px 0;
-     }
- }
+
+@media(max-width:767px) {
+    .services {
+        padding: 40px 0;
+    }
+}
+
 .services .continer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -431,8 +441,7 @@ body {
 
 
 .gallery .continer img {
-    width: 400px;
-    height: 270px;
+
     max-width: 100%;
     text-align: center;
     position: relative;
@@ -453,22 +462,36 @@ body {
 
 .gallery .continer h3 {
     position: absolute;
-    top: 23%;
-    left: 27%;
+    top: 15%;
+    left: 50%;
+    transform: translatex(-50%);
     display: none;
+}
+
+@media (min-width:768px),(max-width:991px) {
+    .gallery .continer h3 {
+        position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translatex(-50%);
+            display: none
+    }
 }
 
 .gallery .continer .image:hover h3 {
     display: block;
     z-index: 2;
+    color: #a05513;
 }
 
 .gallery .continer p {
     position: absolute;
-    top: 40%;
-    left: 5%;
+    left: 50%;
+    bottom: 30%;
+    transform: translatex(-50%);
     text-align: center;
     display: none;
+    color: var(--main-color);
 }
 
 .gallery .continer .image:hover p {
@@ -476,15 +499,23 @@ body {
     z-index: 2;
 }
 
-.gallery .continer button {
-    padding: 10px;
-    background: var(--main-color);
-    border: none;
-    color: var(--sec-color);
+.gallery button {
     position: absolute;
-    top: 190px;
-    left: 160px;
+    padding: 10px 15px;
+    background: var(--sec-color);
+    color: var(--main-color);
+    border: none;
+    left: 50%;
+    bottom: 10px;
+    transform: translatex(-50%);
+    -webkit-transform: translatex(-50%);
+    -moz-transform: translatex(-50%);
+    -ms-transform: translatex(-50%);
+    -o-transform: translatex(-50%);
+    margin: 10px auto;
     display: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 .gallery .continer .image:hover button {
@@ -494,7 +525,7 @@ body {
 
 .gallery .continer button a {
     text-decoration: none;
-    color: var(--sec-color);
+    color: var(--main-color);
 }
 
 
@@ -599,7 +630,7 @@ body {
     padding: 40px 25px;
     border-radius: 6px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: transform var(--main-transition--), box-shadow var(--main-transition--);
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
 
 }
 
@@ -625,7 +656,8 @@ body {
 .review .continer .box .text h3 {
     color: var(--sec-color);
 }
-.review .continer .box .text p{
+
+.review .continer .box .text p {
     color: var(--sec-color);
     line-height: 1.5;
 }
@@ -674,15 +706,26 @@ body {
     border-radius: 6px;
 }
 
+@media (max-width:767px) {
+    .contact .continer {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .contact .continer .form {
+        width: 100%;
+    }
+}
+
 .contact .continer form input {
     padding: 10px;
-    margin: 10px;
+    margin: 10px 0px;
     outline: none;
 }
 
 .contact .continer form textarea {
+    width: 100%;
     padding: 10px;
-    margin: 10px;
     height: 200px;
     outline: none;
 }
@@ -697,40 +740,47 @@ body {
     background-color: var(--sec-color);
     cursor: pointer;
 }
+
 /*footer*/
-.footer{
+.footer {
     padding: var(--main-padding);
-    background-color:var(--sec-color) ;
+    background-color: var(--sec-color);
 }
-.footer .continer{
+
+.footer .continer {
     padding: 0;
-  color: var(--main-color);
-  text-align: center;
+    color: var(--main-color);
+    text-align: center;
 }
-.footer .continer h2{
-font-size: 35px;
+
+.footer .continer h2 {
+    font-size: 35px;
     margin: 10px 15px;
 }
-.footer .continer p{
+
+.footer .continer p {
     padding: 5px;
     font-size: 16px;
 }
-.footer .continer .social a{
+
+.footer .continer .social a {
     background-color: #9e6a3c;
-        color: var(--fourth-color);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        transition: var(--main-transition--);
-        text-decoration: none;
+    color: var(--fourth-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    transition: var(--main-transition--);
+    text-decoration: none;
 }
-.footer .continer .social i{
+
+.footer .continer .social i {
     margin: 10px;
 }
-.footer .continer p span{
+
+.footer .continer p span {
     color: #a05513;
 }
