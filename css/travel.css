@@ -364,14 +364,13 @@ body {
 
 .services .continer .box {
     background-color: var(--third-color);
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+    width: 370px;
+    height: 270px;
+    border-radius: 10px;
     text-align: center;
     overflow: hidden;
     margin: 0 auto;
-    border: 3px solid #9e6a3c;
-
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width:676px) {
@@ -774,10 +773,18 @@ body {
     text-decoration: none;
 }
 
+.footer .continer .social a:hover {
+    background-color: var(--main-color);
+}
+
 .footer .continer .social i {
     margin: 10px;
 }
 
-.footer .continer p span {
+.footer .continer .social a:hover i {
+    color: var(--sec-color);
+}
+
+footer .continer p span {
     color: #a05513;
 }
